@@ -5,7 +5,7 @@
 
 
 variables:
- - group: newya
+ - group: newa
 
 steps:
 - task: NuGetToolInstaller@0
