@@ -5,7 +5,7 @@
 
 
 variables:
- - group: ay
+ - group: a
 
 steps:
 - task: NuGetToolInstaller@0
