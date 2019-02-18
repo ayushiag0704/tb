@@ -1,0 +1,30 @@
+# ASP.NET
+# Build and test ASP.NET projects.
+# Add steps that publish symbols, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/apps/aspnet/build-aspnet-4123y
+
+
+variables:
+ - group: a-on
+
+pool:
+  name: a
+
+steps:
+- task: NuGetToolInstaller@0
+
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: '$(solution)'
+    
+- task: AzureResourceGroupDeployment@2
+  displayName: 'Azure Deployment:Start action on ankhokha-update'
+  inputs:
+    azureSubscription: 'ayagrawa'
+    action: Start
+    resourceGroupName: 'ankhokha-update'
+
+- task: DownloadSecureFile@1
+  displayName: 'Download secure file'
+  inputs:
+    secureFile: 'cdd9e567-52b6-4798-a475-f6ef73d2dc32'
